@@ -3,10 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { StopWatchComponent } from './stop-watch/stop-watch.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    StopWatchComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
