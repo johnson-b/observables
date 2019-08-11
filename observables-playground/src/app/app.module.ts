@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StopWatchComponent } from './stop-watch/stop-watch.component';
 import { HomeComponent } from './home/home.component';
+import { TypeAheadWipComponent } from './type-ahead-wip/type-ahead-wip.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StopWatchComponent,
-    HomeComponent
+    HomeComponent,
+    TypeAheadWipComponent
   ],
   imports: [
     BrowserModule,
