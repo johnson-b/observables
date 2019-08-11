@@ -1,0 +1,17 @@
+.flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1em;
+
+  input {
+    flex: 1;
+    padding: 2em;
+    text-align: center;
+  }
+
+  .questions-container {
+    flex: 1;
+    text-align: center;
+  }
+}

@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { StopWatchComponent } from './stop-watch/stop-watch.component';
 import { HomeComponent } from './home/home.component';
 import { TypeAheadWipComponent } from './type-ahead-wip/type-ahead-wip.component';
+import { TypeAheadComponent } from './type-ahead/type-ahead.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StopWatchComponent,
     HomeComponent,
-    TypeAheadWipComponent
+    TypeAheadWipComponent,
+    TypeAheadComponent
   ],
   imports: [
     BrowserModule,

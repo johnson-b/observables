@@ -1,14 +1,14 @@
-import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
-import { fromEvent } from 'rxjs';
-import { map, switchMap, tap, filter, mergeMap } from 'rxjs/operators';
+import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { fromEvent, of } from 'rxjs';
+import { map, filter, switchMap, mergeMap, debounceTime, distinctUntilChanged, catchError } from 'rxjs/operators';
 import { ajax } from 'rxjs/ajax';
 
 @Component({
-  selector: 'app-type-ahead-wip',
-  templateUrl: './type-ahead-wip.component.html',
-  styleUrls: ['./type-ahead-wip.component.scss']
+  selector: 'app-type-ahead',
+  templateUrl: './type-ahead.component.html',
+  styleUrls: ['./type-ahead.component.scss']
 })
-export class TypeAheadWipComponent implements AfterViewInit {
+export class TypeAheadComponent implements AfterViewInit {
 
   @ViewChild('search')
   searchInput: ElementRef;
@@ -24,15 +24,19 @@ export class TypeAheadWipComponent implements AfterViewInit {
   ngAfterViewInit() {
     fromEvent(this.searchInput.nativeElement, 'keyup').pipe(
       map((event: any) => event.target.value),
-      filter((searchText) => !!searchText),
+      filter((searchText) => !!searchText && searchText.length > 3),
+      debounceTime(333),
+      distinctUntilChanged(),
       switchMap((searchText) => {
         this.questionContainer.nativeElement.innerHTML = '';
         return ajax(this.slackApi(searchText));
       }),
+      catchError(err => of({ response: { items: []}})),
       mergeMap((response) => response.response.items),
     ).subscribe(
       (question: any) => this.questionContainer.nativeElement.innerHTML += '<br/>' + question.title,
-      err => alert(err.message)
+      err => alert(err.message),
+      () => console.log('done')
     );
   }
 
