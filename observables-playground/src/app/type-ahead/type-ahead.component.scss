@@ -1,8 +1,9 @@
 .flex-container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   margin: 1em;
+  min-height: 2em;
 
   input {
     flex: 1;
