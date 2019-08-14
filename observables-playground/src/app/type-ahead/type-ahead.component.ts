@@ -59,7 +59,9 @@ export class TypeAheadComponent implements AfterViewInit {
   }
 
   getCircle() {
-    return this.sanatizer.bypassSecurityTrustHtml(`<div class="circle" style="background-color: ${this.getRandomColor()}"></div>`);
+    const circle = this.sanatizer.bypassSecurityTrustHtml(`<div class="circle" style="background: ${this.getRandomColor()}"></div>`);
+    console.log('CIRCLE', circle);
+    return circle;
   }
 
   getRandomColor() {

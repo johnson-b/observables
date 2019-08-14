@@ -8,7 +8,7 @@ import { trigger, transition, animate, keyframes, style } from '@angular/animati
   animations: [
     trigger('slideRight', [
       transition('void => *',
-        animate('5000ms', keyframes([
+        animate('3000ms', keyframes([
           style({ left: 0, opacity: 1, offset: 0 }),
           style({ left: '99%', opacity: 1, offset: .99 }),
           style({ left: '100%', opacity: 0, display: 'none', offset: 1.0 })
@@ -28,5 +28,6 @@ export class TypeAheadVisualComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log('COLLECTION', this.collection);
   }
 }

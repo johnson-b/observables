@@ -2,17 +2,30 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin: 1em;
+  margin: 3em 1em;
   min-height: 2em;
 
   input {
     flex: 1;
     padding: 2em;
     text-align: center;
+    font-size: 1em;
+  }
+
+  input::placeholder {
+    font-size: 1em;
   }
 
   .questions-container {
     flex: 1;
     text-align: center;
   }
+}
+
+.margin-me-please {
+  margin-top: 2em;
+}
+
+.border-me-please {
+  border: 2px solid black;
 }
