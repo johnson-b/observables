@@ -2,5 +2,17 @@
   <input #search type="text" />
 </div>
 <div class="flex-container">
+  <app-type-ahead-visual [collection]="keyUps" [title]="'Key Up'"></app-type-ahead-visual>
+</div>
+<div class="flex-container">
+  <app-type-ahead-visual [collection]="filters" [title]="'Filter'"></app-type-ahead-visual>
+</div>
+<div class="flex-container">
+  <app-type-ahead-visual [collection]="results" [title]="'Results'"></app-type-ahead-visual>
+</div>
+<div class="flex-container">
+  <app-type-ahead-visual [collection]="questions" [title]="'Questions'"></app-type-ahead-visual>
+</div>
+<div class="flex-container border-me-please">
   <div #questionsContainer class="questions-container"></div>
 </div>

@@ -51,7 +51,9 @@ export class TypeAheadComponent implements AfterViewInit {
       mergeMap((response) => response.response.items)
     ).subscribe((question: any) => {
         this.questionContainer.nativeElement.innerHTML += '<br/>' + question.title;
-        this.questions.push(this.getCircle());
+        setTimeout(() => {
+          this.questions.push(this.getCircle());
+        });
       },
       err => alert(err.message),
       () => console.log('done')
