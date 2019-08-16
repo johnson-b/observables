@@ -1,11 +1,8 @@
 <div class="flex-container">
-  <input #search type="text" />
+  <input #search type="text" placeholder="Fix my problem" />
 </div>
 <div class="flex-container">
   <app-type-ahead-visual [collection]="keyUps" [title]="'Key Up'"></app-type-ahead-visual>
-</div>
-<div class="flex-container">
-  <app-type-ahead-visual [collection]="filters" [title]="'Filter'"></app-type-ahead-visual>
 </div>
 <div class="flex-container">
   <app-type-ahead-visual [collection]="results" [title]="'Results'"></app-type-ahead-visual>

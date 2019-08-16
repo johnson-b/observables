@@ -17,7 +17,6 @@ export class TypeAheadWipComponent implements AfterViewInit {
   questionContainer: ElementRef;
 
   keyUps: any[] = [];
-  filters: any[] = [];
   results: any[] = [];
   questions: any[] = [];
 
@@ -31,7 +30,6 @@ export class TypeAheadWipComponent implements AfterViewInit {
       map((event: any) => event.target.value),
       tap(() => this.keyUps.push('')),
       filter((searchText) => !!searchText),
-      tap(() => this.filters.push('')),
       switchMap((searchText) => {
         this.questionContainer.nativeElement.innerHTML = '';
         return ajax(this.slackApi(searchText));
